@@ -1,5 +1,4 @@
 import {steamKey} from './keys.js';
-let request = requires('request');
 
 // ES 6 updates
 // String Interpolation/String Template Literal
