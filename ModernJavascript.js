@@ -1,4 +1,5 @@
-import {steamKey} from './keys.js';
+//import {steamKey} from './keys.js';
+const fetch = require('node-fetch');
 
 // ES 6 updates
 // String Interpolation/String Template Literal
@@ -34,13 +35,23 @@ promise.then((response) => {
 });
 // Asynchronous functions
 async function multiply(x,y) {
-  return x * y;
+  return await x * y;
 }
 
+let appId = 221380; // AoE II game ID
+let url = `http://api.steampowered.com/ISteamUserStats/GetGlobalAchievementPercentagesForApp/v0002/?gameid=${appId}`
 
+async function fetchData(url) {
+  console.log(url);
+  let response = await fetch(url);
+  let jsonResponse = await response.json();
+  console.log(JSON.stringify(jsonResponse));
+}
 
+fetchData(url).catch(()=>{
+  console.log('error with fetching');
+});
 
-let appId = '221380'; // AoE II game ID
 let inventory = {
   'food': 2,
   'clothing': 3
