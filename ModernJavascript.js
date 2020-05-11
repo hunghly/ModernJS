@@ -8,12 +8,43 @@ let zenva = 'Zenva';
 // Pad start and pad end
 zenva = zenva.padEnd(10, '.');
 zenva = zenva.padStart(15, '.');
-console.log(zenva);
-console.log(steamKey);
+// New arrow functions
+let add = (x, y) => {
+  return x + y;
+}
+console.log(add(1,2)); // returns 3
+// New default parameters
+let sub = (x , y = 1) => {
+  return x - y;
+}
+console.log(sub(1));
+// Promises
+const promise = new Promise((resolve, reject) => {
+  let number1 = 5;
+  if (number1 === 5) {
+    resolve('resolved');
+  } else {
+    reject('rejected');
+  }
+});
+promise.then((response) => {
+  console.log(response);
+}).catch((response)=> {
+  console.log(response);
+});
+// Asynchronous functions
+async function multiply(x,y) {
+  return x * y;
+}
+
+
+
 
 let appId = '221380'; // AoE II game ID
-// let request = new Request('http://api.steampowered.com/ISteamUserStats/GetGlobalAchievementPercentagesForApp/v0002/?gameid=440');
+let inventory = {
+  'food': 2,
+  'clothing': 3
+}
 
-// fetch(request).then((data) => {
-//   console.log(data);
-// })
+console.log(inventory.food);
+console.log(inventory['food']);
